@@ -35,9 +35,9 @@ def hash_function(share):
 
 ################################################################
 #TESTING
-newShare = userCreateShare()
-print(hash_function(newShare))
-newShare.getInfo()
+#newShare = userCreateShare()
+#print(hash_function(newShare))
+#newShare.getInfo()
 ################################################################
 
 
