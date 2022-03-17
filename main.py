@@ -4,7 +4,10 @@ print("Hi Simon!")
 
 
 
-from csv_reader import get_last_thirty_days
+from csv_reader import get_last_thirty_days, print_last_thirty_days
 
-print(get_last_thirty_days('Source\MSFT.csv'))
+print_last_thirty_days()
+
+
+
 

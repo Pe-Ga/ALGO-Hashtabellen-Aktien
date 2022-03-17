@@ -14,3 +14,24 @@ def get_last_thirty_days(filepath):
 
     return lst
 
+def print_last_thirty_days():
+
+    lst = get_last_thirty_days('Source\MSFT.csv')
+
+    print(" /------------+------------+------------+------------+------------+------------+----------+")
+    print(" |    Data    |     open   |   high     |    low     |    close   | adj close  |  volume  |")
+    print(" +------------+------------+------------+------------+------------+------------+----------+")
+
+    for sublist in lst:
+        row = ""
+        for item in sublist:
+            row = row + " | " + item
+        print(row + " |")
+        print(" +------------+------------+------------+------------+------------+------------+----------+")
+
+
+
+
+
+
+
