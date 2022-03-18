@@ -1,11 +1,16 @@
-import Share
 # Note: Python passes references NOT copies. Extra Code needed if origin should be preserved.
 # some prime numbers > 1000: (1499, 1747, 1999, 2503)
 
 
 # params(string, int, int prime_number)
 # returns index
-def hash_function_new(to_hash, base, table_len):
+
+
+table_len = 23
+generic_table = [None] * table_len
+
+
+def hash_function_new(to_hash, base):
     ascii_lst = reversed([ord(letter) for letter in to_hash])
     factor = 1
     hashed_string = 0
@@ -16,22 +21,18 @@ def hash_function_new(to_hash, base, table_len):
     return hashed_string % table_len
 
 
-table_len = 23
-generic_table = [None] * table_len
-
-
 # object is a generalization of the share. Not sure if this is ideal =)
-def new_entry(object, to_hash, outer_list):
-    index = hash_function_new(to_hash, 31, table_len)
+def new_entry(to_hash, outer_list):
+    index = hash_function_new(to_hash, 31)
     n = 1
     while ((table_len + 1) / 2) != n:   # go through half the table
         if outer_list[index] is None:
-            outer_list[index] = {"isDeleted": False, "object": object}
+            outer_list[index] = {"isDeleted": False, "object": to_hash}
             break
         elif outer_list[index]["isDeleted"]:
-            outer_list[index] = {"isDeleted": False, "object": object}
+            outer_list[index] = {"isDeleted": False, "object": to_hash}
             break
-        elif outer_list[index]["object"].getName() == to_hash:
+        elif outer_list[index]["object"] == to_hash:
             print("Item already exists")
         else:
             index += n*n
@@ -42,7 +43,7 @@ def new_entry(object, to_hash, outer_list):
 
 
 def search_entry(to_hash, outer_list):
-    index = hash_function_new(to_hash, 31, table_len)
+    index = hash_function_new(to_hash, 31)
     n = 1
     while ((table_len + 1) / 2) != n:   # go through half the table
         if outer_list[index] is None:
@@ -54,7 +55,7 @@ def search_entry(to_hash, outer_list):
             n += 1
             if (table_len + 1) / 2 == n:
                 print("Item not found. Reached end of quadratic probing.")
-        elif outer_list[index]["object"].getName() == to_hash:
+        elif outer_list[index]["object"] == to_hash:
             print("Item found!")
             return index
         else:
@@ -69,20 +70,3 @@ def del_entry(to_search, outer_list):
     else:
         outer_list[found_index]["isDeleted"] = True
         outer_list[found_index]["object"] = "deleted"
-
-##############################################################################
-
-newShare = Share.userCreateShare()
-
-new_entry(newShare, newShare.getName(), generic_table)
-search_string = str(input("Name: "))
-found_index = search_entry(search_string, generic_table)
-if found_index is False:
-    print("oops")
-else:
-    generic_table[found_index]["object"].getInfo()
-print(generic_table)
-
-del_entry(str(input("Name: ")), generic_table)
-print(generic_table)
-##############################################################################
