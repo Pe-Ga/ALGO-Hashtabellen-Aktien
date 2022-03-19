@@ -31,7 +31,7 @@ while option != "x":
         to_search = str(input("Type '#NAME' or 'ABBREVIATION' of share to show it: "))
         if is_name(to_search):
             index = name_table.search_entry(to_search[1:])
-            print(name_table.get_entry(index))
+            name_table.get_entry(index)
         else:
             index = abbr_table.search_entry(to_search)
             print(abbr_table.get_entry(index))
