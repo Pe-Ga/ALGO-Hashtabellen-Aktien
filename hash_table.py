@@ -71,6 +71,10 @@ class Hashtable:
     def get_entry(self, index):
         print(self.__table[index])
 
+    def get_table(self):
+        return self.__table
+
+
 '''
 first_table = Hashtable(23)
 option = str(input("what to do? insert, search? "))
