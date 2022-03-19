@@ -4,7 +4,7 @@
 class Hashtable:
     def __init__(self, table_len):
         self.__table_len = table_len
-        self.__table = [None] * table_len
+        self.__table = [{}] * table_len
 
     def hash_function_new(self, to_hash, base):
         ascii_lst = reversed([ord(letter) for letter in to_hash])
@@ -19,7 +19,7 @@ class Hashtable:
         index = self.hash_function_new(to_hash, 31)
         n = 1
         while ((self.__table_len + 1) / 2) != n:  # go through half the table
-            if self.__table[index] is None:
+            if not self.__table[index]:
                 self.__table[index] = {"isDeleted": False, "saved_string": to_hash}
                 break
             elif self.__table[index]["isDeleted"]:
@@ -38,7 +38,7 @@ class Hashtable:
         index = self.hash_function_new(to_hash, 31)
         n = 1
         while ((self.__table_len + 1) / 2) != n:  # go through half the table
-            if self.__table[index] is None:
+            if not self.__table[index]:
                 print("Item does not exist!")
                 return False
             elif self.__table[index]["isDeleted"]:
@@ -65,7 +65,13 @@ class Hashtable:
     def show_table(self):
         print(self.__table)
 
+    def add_info(self, index,  key, value):
+        self.__table[index].update({key: value})
 
+    def get_entry(self, index):
+        print(self.__table[index])
+
+'''
 first_table = Hashtable(23)
 option = str(input("what to do? insert, search? "))
 while option != "_":
@@ -77,6 +83,8 @@ while option != "_":
         first_table.search_entry(search)
     first_table.show_table()
     option = str(input("what to do? insert, search?"))
+'''
+
 
 
 

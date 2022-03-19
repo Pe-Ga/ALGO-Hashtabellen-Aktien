@@ -20,7 +20,7 @@ def get_last_thirty_days(filepath):
 
 def print_last_thirty_days():
     lst = get_last_thirty_days('Source\\MSFT.csv')
-    print(len(lst))
+    #print(len(lst))
 
     print(" /------------+------------+------------+------------+------------+------------+----------+")
     print(" |    Data    |     open   |   high     |    low     |    close   | adj close  |  volume  |")
