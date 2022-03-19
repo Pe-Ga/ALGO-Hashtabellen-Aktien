@@ -1,22 +1,26 @@
 import csv
 
+import numpy as np
+
 
 def get_last_thirty_days(filepath):
     with open(filepath, 'r') as csvfile:
         csv_reader = csv.reader(csvfile, delimiter=';')
 
-        next(csv_reader)
         lst = []
-        for item in range(30):
-            row = next(csv_reader)
-            #print(row)
-            lst.append(row)
+
+        for item in csv_reader:
+            lst.insert(0, item)
+            #lst = [*[item], *lst]
+
+        lst = lst[0:30]
 
     return lst
 
-def print_last_thirty_days():
 
-    lst = get_last_thirty_days('Source\MSFT.csv')
+def print_last_thirty_days():
+    lst = get_last_thirty_days('Source\\MSFT.csv')
+    print(len(lst))
 
     print(" /------------+------------+------------+------------+------------+------------+----------+")
     print(" |    Data    |     open   |   high     |    low     |    close   | adj close  |  volume  |")
@@ -28,10 +32,3 @@ def print_last_thirty_days():
             row = row + " | " + item
         print(row + " |")
         print(" +------------+------------+------------+------------+------------+------------+----------+")
-
-
-
-
-
-
-

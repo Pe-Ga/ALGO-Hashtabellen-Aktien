@@ -43,39 +43,4 @@ def hash_function(share):
 
 
 
-def get_last_thirty_days(filepath):         # reads last 30 days from csv file and puts it into a list
-    with open(filepath, 'r') as csvfile:
-        csv_reader = csv.reader(csvfile, delimiter=';')
-
-        next(csv_reader)
-        lst = []
-        for item in range(30):              #limit for 30 items
-            row = next(csv_reader)
-            #print(row)
-            lst.append(row)
-
-    return lst                             #returns a list of list
-
-def print_last_thirty_days():               #prints last 30 days in a table form
-
-    lst = get_last_thirty_days('Source\MSFT.csv')
-
-    #header of tabulatur
-    print(" /------------+------------+------------+------------+------------+------------+----------+")
-    print(" |    Data    |     open   |   high     |    low     |    close   | adj close  |  volume  |")
-    print(" +------------+------------+------------+------------+------------+------------+----------+")
-
-    for sublist in lst:                     #iterating through list of list
-        row = ""
-        for item in sublist:
-            row = row + " | " + item        #string concatination for each row
-        print(row + " |")
-        print(" +------------+------------+------------+------------+------------+------------+----------+")
-
-
-
-
-
-
-
 
