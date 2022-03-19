@@ -59,8 +59,7 @@ class Hashtable:
         if found_index is False:
             print("Error while searching Index!")
         else:
-            self.__table[found_index]["isDeleted"] = True
-            self.__table[found_index]["saved_string"] = "deleted"
+            self.__table[found_index] = {"isDeleted": True}
 
     def show_table(self):
         print(self.__table)

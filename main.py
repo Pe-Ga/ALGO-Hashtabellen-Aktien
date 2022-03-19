@@ -12,7 +12,7 @@ new_list[0] = {"greeting": "hi"}
 print(new_list[0])
 
 
-option = str(input("ADD (+), DEL(-), IMPORT(i), SEARCH(?), PLOT(p), SAVE(s), LOAD(l), QUIT(x)"))
+option = str(input("ADD (+), DEL(-), IMPORT(i), SEARCH(?), PLOT(p), SAVE(s), LOAD(l), QUIT(x): "))
 while option != "x":
     if option == "+":
         newShare = Share()
@@ -20,16 +20,15 @@ while option != "x":
         name_table.new_entry(newShare.getName())
         abbr_table.new_entry(newShare.getAbbr())
     elif option == "-":
-        to_delete = str(input("Type '#NAME' or 'ABBREVIATION' of share to delete it:"))
+        to_delete = str(input("Type '#NAME' or 'ABBREVIATION' of share to delete it: "))
         if is_name(to_delete):
             name_table.del_entry(to_delete[1:])
         else:
             abbr_table.del_entry(to_delete)
-        name_table.show_table()
     elif option == "i":
         print()
     elif option == "?":
-        to_search = str(input("Type '#NAME' or 'ABBREVIATION' of share to show it:"))
+        to_search = str(input("Type '#NAME' or 'ABBREVIATION' of share to show it: "))
         if is_name(to_search):
             index = name_table.search_entry(to_search[1:])
             print(name_table.get_entry(index))
@@ -38,6 +37,6 @@ while option != "x":
             print(abbr_table.get_entry(index))
     elif option == "p":
         print()
-    elif option == "x":
-        print()
-    option = str(input("ADD (+), DEL(-), IMPORT(i), SEARCH(?), PLOT(p), SAVE(s), LOAD(l), QUIT(x)"))
+    else:
+        print("Wrong input try again: ")
+    option = str(input("ADD (+), DEL(-), IMPORT(i), SEARCH(?), PLOT(p), SAVE(s), LOAD(l), QUIT(x): "))

@@ -24,7 +24,6 @@ class Share:
 
 def is_name(check_string):
     if check_string[0] == "#":
-        check_string = check_string[1:]
         return True
     else:
         return False
