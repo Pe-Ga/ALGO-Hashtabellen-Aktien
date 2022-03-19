@@ -67,7 +67,7 @@ class Hashtable:
 
 
 first_table = Hashtable(23)
-option = str(input("what to do? insert, search?"))
+option = str(input("what to do? insert, search? "))
 while option != "_":
     if option == "i":
         insert = str(input("Insert: "))
