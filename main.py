@@ -5,12 +5,6 @@ from Share import Share, is_name
 name_table = ht(23)
 abbr_table = ht(23)
 
-new_list = [{}]*10
-print(new_list)
-print(not new_list[0])
-new_list[0] = {"greeting": "hi"}
-print(new_list[0])
-
 
 option = str(input("ADD (+), DEL(-), IMPORT(i), SEARCH(?), PLOT(p), SAVE(s), LOAD(l), QUIT(x): "))
 while option != "x":
@@ -19,6 +13,12 @@ while option != "x":
         newShare.userCreateShare()
         name_table.new_entry(newShare.getName())
         abbr_table.new_entry(newShare.getAbbr())
+
+        index_name = name_table.search_entry(newShare.getName())
+        index_abbr = abbr_table.search_entry(newShare.getAbbr())
+        name_table.add_info(index_name, "share", newShare)
+        abbr_table.add_info(index_abbr, "share", newShare)
+
     elif option == "-":
         to_delete = str(input("Type '#NAME' or 'ABBREVIATION' of share to delete it: "))
         if is_name(to_delete):
@@ -31,10 +31,10 @@ while option != "x":
         to_search = str(input("Type '#NAME' or 'ABBREVIATION' of share to show it: "))
         if is_name(to_search):
             index = name_table.search_entry(to_search[1:])
-            name_table.get_entry(index)
+            name_table.get_entry(index)["share"].getInfo()
         else:
             index = abbr_table.search_entry(to_search)
-            print(abbr_table.get_entry(index))
+            abbr_table.get_entry(index)["share"].getInfo()
     elif option == "p":
         print()
     else:

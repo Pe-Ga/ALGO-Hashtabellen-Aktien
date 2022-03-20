@@ -1,5 +1,5 @@
 import matplotlib.dates as mdates
-from Share import get_last_thirty_days
+from csv_reader import get_last_thirty_days
 import Share
 import matplotlib
 import matplotlib.pyplot as plt
