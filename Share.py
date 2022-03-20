@@ -5,7 +5,7 @@ class Share:
         self.__name = ""
         self.__wkn = ""
         self.__abbr = ""
-        self.__csv_lst = []
+        self.csv_lst = []
 
     def getInfo(self):
         print("NAME: " + self.__name, "WKN: " + self.__wkn, "ABBREVIATION: " + self.__abbr, sep="\n")
@@ -16,11 +16,11 @@ class Share:
     def getAbbr(self):
         return self.__abbr
 
-    def getFilepath(self):
-        return self.__filepath
+    def get_csv_lst(self, ):
+        return self.csv_lst
 
     def set_csv_lst(self, lst):
-        self.__csv_lst = lst
+        self.csv_lst = lst
 
     def userCreateShare(self):
         self.__name = str(input("Enter NAME of the share: "))
