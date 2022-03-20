@@ -15,9 +15,12 @@ def plot_share(lst):
         x_coordinate.append(sublist[0])  # datum
         y_coordinate.append(float(sublist[4]))  # close
 
+
     x = [datetime.strptime(d, "%Y-%m-%d") for d in x_coordinate]  # parses strings to datetime
     xs = matplotlib.dates.date2num(x)                             #converts datetime
     formatter = matplotlib.dates.DateFormatter('%d-%m\n%Y')       #formates datetime to d-m format
+
+
 
     fig = plt.figure()
     ax = fig.add_subplot(1, 1, 1)

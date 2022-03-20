@@ -64,7 +64,7 @@ class Hashtable:
     def show_table(self):
         print(self.__table)
 
-    def add_info(self, index,  key, value):
+    def add_info(self, index, key, value):
         self.__table[index].update({key: value})
 
     def get_entry(self, index):
@@ -72,6 +72,9 @@ class Hashtable:
 
     def get_table(self):
         return self.__table
+
+    def set_table(self, table_input):
+        self.__table = table_input
 
 
 '''
@@ -87,11 +90,3 @@ while option != "_":
     first_table.show_table()
     option = str(input("what to do? insert, search?"))
 '''
-
-
-
-
-
-
-
-
