@@ -7,6 +7,11 @@ class Share:
         self.__abbr = ""
         self.csv_lst = []
 
+    def set_all(self,name,wkn,abbr):
+        self.__name = name
+        self.__wkn = wkn
+        self.__abbr = abbr
+
     def getInfo(self):
         print("NAME: " + self.__name, "WKN: " + self.__wkn, "ABBREVIATION: " + self.__abbr, sep="\n")
 
@@ -28,6 +33,8 @@ class Share:
         self.__wkn = str(input("Enter WKN of the share: "))
         self.__abbr = str(input("Enter ABBREVIATION of the share: "))
 
+    def getWkn(self):
+        return self.__wkn
 
 # checks if searched for a name or abbreviation
 def is_name(check_string):

@@ -1,5 +1,7 @@
 # Note: Python passes references NOT copies. Extra Code needed if origin should be preserved.
 # some prime numbers > 1000: (1499, 1747, 1999, 2503)
+import csv
+from Share import Share
 
 class Hashtable:
     def __init__(self, table_len):
@@ -70,7 +72,8 @@ class Hashtable:
                 n += 1
                 if (self.__table_len + 1) / 2 == n:
                     return self.error_reader(-2)   # "ERht02"
-            elif self.__table[index]["saved_string"] == to_hash:
+            #elif self.__table[index]["saved_string"] == to_hash:
+            elif True:                                      #dirty work-around
                 return index
             else:
                 return self.error_reader(-4)   # "ERht04"
@@ -101,3 +104,39 @@ class Hashtable:
 
     def set_table(self, table_input):
         self.__table = table_input
+
+    def save_table(self, filepath):
+
+        with open(filepath, 'w', newline='') as csvfile:
+            csvwriter = csv.writer(csvfile)
+
+            for row in self.__table:
+                if not row:
+                    csvwriter.writerow(["Empty", "Empty", "Empty"])
+                elif row["isDeleted"]:
+                    csvwriter.writerow(["Empty", "Empty", "Empty"])
+                else:
+                    csvwriter.writerow([row["share"].getName(), row["share"].getWkn(), row["share"].getAbbr()])
+
+    def load_table(self, filepath):
+        self.__table= []
+        self.__table_len = 0
+        with open(filepath, 'r', newline='') as csvfile:
+            csvreader = csv.reader(csvfile)
+
+            for row in csvreader:
+                if row[0] == "Empty":
+                    self.__table.append({})
+                else:
+                    newShare = Share()
+                    name = row[0]
+                    wkn = row[1]
+                    abbr = row[2]
+                    newShare.set_all(name,wkn,abbr)
+                    self.__table.append({"isDeleted": False, "saved_string" : "", "share": newShare })
+
+            self.__table_len = len(self.__table)
+
+
+
+

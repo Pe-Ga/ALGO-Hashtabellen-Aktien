@@ -95,6 +95,14 @@ while option != "x":
                     print("Wrong input!")
                 print("\n|CHANGE THIS SHARE?  ----------------------------------------------------------------|")
                 share_option = str(input("DEL(-), IMPORT(i) or PLOT(p) chosen share or EXIT(x) to main menu: "))
+    elif option == "s":  # save hashtable
+        name_table.save_table('Hash_Directory\\hash_table_name.csv')
+        abbr_table.save_table('Hash_Directory\\hash_table_abbr.csv')
+
+    elif option == "l":  # load hashtable
+        name_table.load_table('Hash_Directory\\hash_table_name.csv')
+        abbr_table.load_table('Hash_Directory\\hash_table_abbr.csv')
+
 
     else:
         print("Wrong input try again: ")
