@@ -88,8 +88,6 @@ class Hashtable:
     def show_table(self):
         print(self.__table)
 
-
-    def add_info(self, index, key, value):
     # add more info to dictionary, missing a lot of testing and limitation
     def add_info(self, index,  key, value):
         self.__table[index].update({key: value})
