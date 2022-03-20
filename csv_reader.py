@@ -5,7 +5,7 @@ import numpy as np
 
 def get_last_thirty_days(filepath):
     with open(filepath, 'r') as csvfile:
-        csv_reader = csv.reader(csvfile, delimiter=';')
+        csv_reader = csv.reader(csvfile, delimiter=',')
 
         lst = []
 
