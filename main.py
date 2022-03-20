@@ -37,6 +37,14 @@ while option != "x":
         name_table.add_info(index_name, "share", newShare)
         abbr_table.add_info(index_abbr, "share", newShare)
 
+    elif option == "s":     # SAVE current hashtable
+        # code for saving print is just a placeholder
+        print()
+
+    elif option == "l":     # LOAD saved data
+        # code for loading print is just a placeholder
+        print()
+
     elif option == "?":     # SEARCH for existing share
         while True:
             print("\n|SEARCH MENU  -----------------------------------------------------------------------|")
