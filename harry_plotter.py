@@ -4,7 +4,7 @@ import matplotlib
 import matplotlib.pyplot as plt
 from datetime import datetime
 
-lst = get_last_thirty_days('Source\\MSFT.csv')
+#lst = get_last_thirty_days('Source\\MSFT.csv')
 
 def plot_share(lst):
 
@@ -29,4 +29,4 @@ def plot_share(lst):
 
     plt.show()
 
-plot_share(lst)
+#plot_share(lst)
