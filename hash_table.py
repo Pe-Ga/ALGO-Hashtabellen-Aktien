@@ -68,7 +68,7 @@ class Hashtable:
         self.__table[index].update({key: value})
 
     def get_entry(self, index):
-        print(self.__table[index])
+        return self.__table[index]
 
     def get_table(self):
         return self.__table
