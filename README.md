@@ -7,9 +7,9 @@ Simon Biegler, Peter Gamsjäger
 Verwaltung von Aktien in Hashtabelle. Aktienkurswerte liegen im CSV-Format im Source Directory vor.
 
  
-/---------------------------------------------------------------------------------------------------+
-| Funktionen des Programms                                                                          |
-+---------------------------------------------------------------------------------------------------+
+
+| Funktionen des Programms |
+
 
  ADD           User*in input Name, WKN, Kürzel -> Speicherung in Hashtabelle
  DEL           Löschen aus Hashtabelle    
