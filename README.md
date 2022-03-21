@@ -1,10 +1,10 @@
-## ALGO-Hashtabellen
+ALGO-Hashtabellen
 Übungsunterlagen Algorithmen und Datenstrukturen Seite 1
 2. Semester
 ÜBUNG 1 – HASHTABELLE 
 Simon Biegler, Peter Gamsjäger
 
-##Verwaltung von Aktien in Hashtabelle. Aktienkurswerte liegen im CSV-Format im Source Directory vor.
+Verwaltung von Aktien in Hashtabelle. Aktienkurswerte liegen im CSV-Format im Source Directory vor.
 
  
 /---------------------------------------------------------------------------------------------------+
