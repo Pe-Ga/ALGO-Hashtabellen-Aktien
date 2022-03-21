@@ -8,7 +8,7 @@ Simon Biegler, Peter Gamsjäger
 
  
 /---------------------------------------------------------------------------------------------------+
-| #Funktionen des Programms                                                                         |
+| Funktionen des Programms                                                                          |
 +---------------------------------------------------------------------------------------------------+
 
  ADD           User*in input Name, WKN, Kürzel -> Speicherung in Hashtabelle
